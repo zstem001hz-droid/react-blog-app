@@ -10,10 +10,10 @@ protected admin area using a Context API authentication system.
 - [x] Blog index page listing all posts with links
 - [x] Dynamic blog post page using route parameters
 - [x] AuthContext managing login and logout state
-- [ ] Login page with simulated authentication
-- [ ] Protected admin route redirecting unauthenticated users
-- [ ] Navbar showing login/logout state conditionally
-- [ ] 404 Not Found page for unmatched routes
+- [x] Login page with simulated authentication
+- [x] Protected admin route redirecting unauthenticated users
+- [x] Navbar showing login/logout state conditionally
+- [x] 404 Not Found page for unmatched routes
 
 ## Tech Stack
 - React 19
@@ -76,6 +76,8 @@ npm run dev
 ### TypeScript
 - [TypeScript Interfaces](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
+- [Array.prototype.find — MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- [Template literals — MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ### Git
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
@@ -84,3 +86,11 @@ npm run dev
 - [Vite Documentation](https://vitejs.dev/guide/)
 
 ## Reflections
+
+This Lab introduced React Router as the foundation for building navigable single page applications. The most important concept was understanding that client-side routing doesn't reload the page — React Router intercepts navigation events and swaps components in and out while the browser URL updates to reflect the current view.
+
+Dynamic routing with `useParams` was the most technically interesting feature. The slug-based URL pattern — where `/blog/react-router-basics `extracts `react-router-basics` as a parameter and uses it to find the correct post from the mock data — demonstrated how URLs can carry meaningful data that drives what a component renders.
+
+The protected admin route using `<Navigate>` for redirection connected directly to prior professional experience with identity and access management. Having worked extensively with authentication systems, SSO implementations, and access control in enterprise environments, the logic behind `isAuthenticated` checks, login flows, and protected route redirection felt immediately intuitive. That familiarity made it straightforward to reason through the AuthContext design — what state needed to be global, what actions needed to be exposed, and how the redirect behavior should work when an unauthenticated user attempts to access a protected resource. The implementation came together quickly as a result.
+
+The `AuthContext` pattern in this lab is a simplified version of what production authentication systems do at a much larger scale — manage session state globally, expose it to the component tree, and gate access to protected areas based on that state.
