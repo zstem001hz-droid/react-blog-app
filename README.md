@@ -6,10 +6,10 @@ client-side routing with React Router, dynamic route parameters, and a
 protected admin area using a Context API authentication system.
 
 ## Features
-- [ ] Mock blog post data with slugs and content
-- [ ] Blog index page listing all posts with links
-- [ ] Dynamic blog post page using route parameters
-- [ ] AuthContext managing login and logout state
+- [x] Mock blog post data with slugs and content
+- [x] Blog index page listing all posts with links
+- [x] Dynamic blog post page using route parameters
+- [x] AuthContext managing login and logout state
 - [ ] Login page with simulated authentication
 - [ ] Protected admin route redirecting unauthenticated users
 - [ ] Navbar showing login/logout state conditionally
