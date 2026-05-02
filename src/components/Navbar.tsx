@@ -1,20 +1,27 @@
-// export default function Navbar() {
-//   return <nav>Navbar</nav>;
-// }
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-// Renders site-wide navigation links
-// Displays on every page above route content
+// Renders site-wide navigation with auth-aware login and logout controls.
+// Displays admin link and logout button only when user is authenticated.
 function Navbar() {
+  const { isAuthenticated, logout } = useAuth();
+
   return (
     <nav>
       <Link to="/">Home</Link>
       {" | "}
       <Link to="/blog">Blog</Link>
       {" | "}
-      <Link to="/admin">Admin</Link>
-      {" | "}
-      <Link to="/login">Login</Link>
+      {/* Admin link and logout only visible when authenticated */}
+      {isAuthenticated ? (
+        <>
+          <Link to="/admin">Admin</Link>
+          {" | "}
+          <button onClick={logout}>Log Out</button>
+        </>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
     </nav>
   );
 }
